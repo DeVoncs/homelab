@@ -50,8 +50,9 @@ apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-co
 # MikroTik Configuration
 Both routers run RouterOS. Configurations:
 
-Router #1: Main router — DHCP server, firewall rules, VLAN setup
-Router #2: Access point mode — extends WiFi coverage
+Main Router: Main router — DHCP server, firewall rules, VLAN setup
+
+LAB Router: Access point mode — extends WiFi coverage
 
 # Skills Demonstrated
 Docker Linux MikroTik RouterOS Networking Self-hosting DNS Reverse Proxy VLANs Wi-Fi 6E
