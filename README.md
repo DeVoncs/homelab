@@ -68,7 +68,9 @@ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.ta
 sudo nano /etc/systemd/logind.conf
 # Add/change:
 HandleLidSwitch=ignore
+
 HandleLidSwitchExternalPower=ignore
+
 HandleLidSwitchDocked=ignore
 
 sudo systemctl restart systemd-logind
@@ -78,9 +80,13 @@ ThinkPad have static IP
 # Pi-hole
 
 config:
+
 docker-compose.yml
+
 yamlservices:
+
   pihole:
+  
     container_name: pihole
     image: pihole/pihole:latest
     network_mode: host
