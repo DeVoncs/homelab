@@ -57,5 +57,66 @@ LAB Router: Access point mode — extends WiFi coverage
 # Skills Demonstrated
 Docker Linux MikroTik RouterOS Networking Self-hosting DNS Reverse Proxy VLANs Wi-Fi 6E
 
+# Homelab Update — Docker, Pi-hole & MikroTik
+
+ThinkPad T530 — Server configuration
+Preventing the system from going to sleep
+bash# masking sleep targets
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+# Config logind
+sudo nano /etc/systemd/logind.conf
+# Add/change:
+HandleLidSwitch=ignore
+HandleLidSwitchExternalPower=ignore
+HandleLidSwitchDocked=ignore
+
+sudo systemctl restart systemd-logind
+
+ThinkPad have static IP
+
+# Pi-hole
+
+config:
+docker-compose.yml
+yamlservices:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    network_mode: host
+    environment:
+      TZ: Europe/Warsaw
+      WEBPASSWORD: haslo
+      DNSMASQ_LISTENING: all
+      PIHOLE_DNS_: 8.8.8.8;8.8.4.4
+    volumes:
+      - ./etc-pihole:/etc/pihole
+      - ./etc-dnsmasq.d:/etc/dnsmasq.d
+    restart: unless-stopped
+
+Known limitations of Pi-hole
+Pi-hole DOES NOT block:
+
+YouTube adverts (served from the same domain as the videos)
+Adverts in mobile apps (Spotify, games)
+Twitch adverts
+
+Pi-hole DOES block:
+
+Adverts on websites
+Trackers and analytics
+Advert pop-ups
+Most display adverts
+
+# TODO / Następne kroki
+
+ Nginx Proxy Manager — ładne URLe dla usług
+ WireGuard VPN — po uzyskaniu publicznego IP od ISP
+ Uptime Kuma — monitoring usług
+ Grafana + SNMP — statystyki z MikroTika
+ Vaultwarden — menedżer haseł
+ Nextcloud — własny dysk w chmurze
+ Wymuszone DNS przez NAT (dstnat port 53 → Pi-hole)
+ 
 # More in future
 
