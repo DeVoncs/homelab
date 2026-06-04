@@ -114,15 +114,19 @@ Trackers and analytics
 Advert pop-ups
 Most display adverts
 
-# TODO / Następne kroki
+# TO DO / Next step
 
- Nginx Proxy Manager — ładne URLe dla usług
- WireGuard VPN — po uzyskaniu publicznego IP od ISP
- Uptime Kuma — monitoring usług
- Grafana + SNMP — statystyki z MikroTika
- Vaultwarden — menedżer haseł
- Nextcloud — własny dysk w chmurze
- Wymuszone DNS przez NAT (dstnat port 53 → Pi-hole)
+ Nginx Proxy Manager — URL for services
+ 
+ WireGuard VPN
+ 
+ Uptime Kuma — service monitoring
+ 
+ Grafana + SNMP — Stats from MikroTika
+ 
+ Vaultwarden — Passwd manager
+ 
+ Nextcloud — cloud disc
  
 # More in future
 
